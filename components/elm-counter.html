@@ -1,0 +1,26 @@
+<!-- element name from "@elm-component" comment -->
+<script src="counter.js"></script>
+<script >
+class Counter extends HTMLElement {
+  constructor() {
+    super();
+    this.elm = Elm.Counter.embed(this);
+
+    this.elm.ports.onChange.subscribe(value => {
+      this.dispatchEvent(new CustomEvent('change', { detail: value }));
+    });
+  }
+
+  set props(props) {
+    Object.keys(props).map(key => {
+      if (this.elm.ports.hasOwnProperty(key)) {
+        this.elm.ports[key].send(props[key]);
+      } else {
+        console.warn(`Counter.elm does not have ${key} property registered.`);
+      }
+    });
+  }
+}
+
+window.customElements.define('elm-counter', Counter);
+</script>
