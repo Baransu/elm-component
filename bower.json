@@ -1,19 +1,11 @@
 {
-  "name": "elm-components",
+  "name": "elm-web-component",
   "description": "",
   "main": "index.js",
-  "authors": [
-    "Tomasz Cichocinski <tomaszcichocinski@gmail.com>"
-  ],
+  "authors": ["Tomasz Cichocinski <tomaszcichocinski@gmail.com>"],
   "license": "MIT",
   "homepage": "",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
   "dependencies": {
     "webcomponentsjs": "^1.0.7"
   }
