@@ -1,4 +1,4 @@
-# elm-web-component
+# elm-component
 
 # Motivation
 |> TBD
