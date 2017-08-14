@@ -24,7 +24,12 @@ init =
 port count : (Model -> msg) -> Sub msg
 
 
-port onChange : Model -> Cmd msg
+port event : ( String, Model ) -> Cmd msg
+
+
+fireEvent : String -> Model -> Cmd msg
+fireEvent eventType payload =
+    event ( eventType, payload )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -34,7 +39,7 @@ update msg model =
             ( count, Cmd.none )
 
         Change value ->
-            ( model, onChange value )
+            ( model, fireEvent "change" value )
 
 
 view : Model -> Html Msg

@@ -6,8 +6,9 @@ class Counter extends HTMLElement {
     super();
     this.elm = Elm.Counter.embed(this);
 
-    this.elm.ports.onChange.subscribe(value => {
-      this.dispatchEvent(new CustomEvent('change', { detail: value }));
+    this.elm.ports.event.subscribe(value => {
+      const [type, detail] = value;
+      this.dispatchEvent(new CustomEvent(type, { detail }));
     });
   }
 
